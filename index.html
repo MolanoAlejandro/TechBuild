@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechBuild — Configurador de PC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">TECHBUILD</div>
+  <div style="color:rgba(255,255,255,.4);font-size:.8rem;margin-top:.5rem;letter-spacing:.15em;">CARGANDO SISTEMA...</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand"><span class="bracket">[</span>TECH<span style="color:var(--dark)">BUILD</span><span class="bracket">]</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Inicio</a></li>
+      <li><a href="#prebuilt">PCs Armadas</a></li>
+      <li><a href="#configurador">Configurar</a></li>
+      <li><a href="#sobre">Sobre Mí</a></li>
+      <li><a href="#configurador" class="nav-cta">¡Arma tu PC!</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Proyecto Académico · Ing. Sistemas · IV Semestre</div>
+    <h1 class="hero-title">
+      Configura tu<br/><span class="accent">PC Ideal</span>
+    </h1>
+    <p class="hero-sub">Elige componentes a tu medida o explora nuestros equipos pre-ensamblados para gaming, trabajo y estudios.</p>
+    <div class="hero-btns">
+      <a href="#configurador" class="btn-primary">🔧 Configurar PC</a>
+      <a href="#prebuilt" class="btn-secondary">Ver PCs armadas →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">9+</div>
+        <div class="stat-label">PCs Armadas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Componentes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Gamas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PCs PRE-ARMADAS -->
+<section id="prebuilt">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">🖥️ Equipos Pre-ensamblados</div>
+      <h2 class="section-title">PCs Listas para <span>Entregar</span></h2>
+      <p class="section-desc">Tres gamas para cada necesidad y presupuesto. Todos los equipos incluyen garantía y soporte técnico.</p>
+    </div>
+
+    <div class="tier-tabs reveal">
+      <button class="tier-tab low active"  onclick="showTier('low')">🟢 Gama Baja</button>
+      <button class="tier-tab mid"         onclick="showTier('mid')">🟠 Gama Media</button>
+      <button class="tier-tab high"        onclick="showTier('high')">🟣 Gama Alta</button>
+    </div>
+
+    <!-- GAMA BAJA -->
+    <div class="pc-grid low active" id="grid-low">
+      <div class="pc-card low reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">💻</div>
+          <span class="pc-badge">Básico</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">StudyPro 100</div>
+          <div class="pc-tagline">Ideal para tareas y navegación</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> Intel Core i3-12100</li>
+            <li><strong>RAM:</strong> 8 GB DDR4 3200 MHz</li>
+            <li><strong>GPU:</strong> Intel UHD 730 (integrada)</li>
+            <li><strong>SSD:</strong> 256 GB NVMe</li>
+            <li><strong>PSU:</strong> 450 W 80+ Bronze</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$1.250.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('StudyPro 100','$1.250.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card low reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">🖨️</div>
+          <span class="pc-badge">Oficina</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">WorkStation 200</div>
+          <div class="pc-tagline">Oficina y multitarea ligera</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> AMD Ryzen 3 4300G</li>
+            <li><strong>RAM:</strong> 8 GB DDR4 2666 MHz</li>
+            <li><strong>GPU:</strong> Radeon Vega 6 (integrada)</li>
+            <li><strong>HDD:</strong> 500 GB + 128 GB SSD</li>
+            <li><strong>PSU:</strong> 400 W 80+ White</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$1.080.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('WorkStation 200','$1.080.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card low reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">📚</div>
+          <span class="pc-badge">Estudiante</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">EduBox 150</div>
+          <div class="pc-tagline">Diseñado para universitarios</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> Intel Pentium Gold G7400</li>
+            <li><strong>RAM:</strong> 8 GB DDR4 2400 MHz</li>
+            <li><strong>GPU:</strong> Intel UHD 710 (integrada)</li>
+            <li><strong>SSD:</strong> 240 GB SATA</li>
+            <li><strong>PSU:</strong> 350 W genérica</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$890.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('EduBox 150','$890.000')">Cotizar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMA MEDIA -->
+    <div class="pc-grid mid" id="grid-mid">
+      <div class="pc-card mid reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">🎮</div>
+          <span class="pc-badge">Gaming</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">GameRig 500</div>
+          <div class="pc-tagline">Juega en 1080p sin lag</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> AMD Ryzen 5 5600X</li>
+            <li><strong>RAM:</strong> 16 GB DDR4 3600 MHz</li>
+            <li><strong>GPU:</strong> RX 6600 8 GB</li>
+            <li><strong>SSD:</strong> 512 GB NVMe Gen3</li>
+            <li><strong>PSU:</strong> 650 W 80+ Bronze</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$2.890.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('GameRig 500','$2.890.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card mid reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">🎨</div>
+          <span class="pc-badge">Creativo</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">CreateStation 550</div>
+          <div class="pc-tagline">Diseño, edición y streaming</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> Intel Core i5-12400F</li>
+            <li><strong>RAM:</strong> 16 GB DDR4 3200 MHz</li>
+            <li><strong>GPU:</strong> GTX 1660 Super 6 GB</li>
+            <li><strong>SSD:</strong> 1 TB NVMe + 1 TB HDD</li>
+            <li><strong>PSU:</strong> 650 W 80+ Gold</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$3.150.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('CreateStation 550','$3.150.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card mid reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">💼</div>
+          <span class="pc-badge">Profesional</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">ProDesk 480</div>
+          <div class="pc-tagline">Trabajo pesado y programación</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> AMD Ryzen 5 5500</li>
+            <li><strong>RAM:</strong> 16 GB DDR4 3200 MHz</li>
+            <li><strong>GPU:</strong> GTX 1650 4 GB</li>
+            <li><strong>SSD:</strong> 512 GB NVMe</li>
+            <li><strong>PSU:</strong> 550 W 80+ Gold</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$2.450.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('ProDesk 480','$2.450.000')">Cotizar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAMA ALTA -->
+    <div class="pc-grid high" id="grid-high">
+      <div class="pc-card high reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">⚡</div>
+          <span class="pc-badge">Ultimate</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">TitanX 1080</div>
+          <div class="pc-tagline">1440p / 4K sin compromisos</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> AMD Ryzen 7 7700X</li>
+            <li><strong>RAM:</strong> 32 GB DDR5 6000 MHz</li>
+            <li><strong>GPU:</strong> RTX 4070 Ti 12 GB</li>
+            <li><strong>SSD:</strong> 2 TB NVMe Gen4</li>
+            <li><strong>PSU:</strong> 850 W 80+ Gold</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$7.800.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('TitanX 1080','$7.800.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card high reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">🚀</div>
+          <span class="pc-badge">Extreme</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">NexGen 4090</div>
+          <div class="pc-tagline">La máquina definitiva</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> Intel Core i9-13900K</li>
+            <li><strong>RAM:</strong> 64 GB DDR5 5600 MHz</li>
+            <li><strong>GPU:</strong> RTX 4090 24 GB</li>
+            <li><strong>SSD:</strong> 2 TB Gen4 + 4 TB NVMe</li>
+            <li><strong>PSU:</strong> 1000 W 80+ Platinum</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$14.500.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('NexGen 4090','$14.500.000')">Cotizar</button>
+        </div>
+      </div>
+      <div class="pc-card high reveal">
+        <div class="pc-card-header">
+          <div class="pc-card-icon">🧠</div>
+          <span class="pc-badge">Workstation</span>
+        </div>
+        <div class="pc-card-body">
+          <div class="pc-name">IntelliCore WS</div>
+          <div class="pc-tagline">IA, render y simulación</div>
+          <ul class="pc-specs">
+            <li><strong>CPU:</strong> AMD Threadripper 7960X</li>
+            <li><strong>RAM:</strong> 128 GB DDR5 ECC</li>
+            <li><strong>GPU:</strong> RTX 4080 16 GB</li>
+            <li><strong>SSD:</strong> 4 TB NVMe RAID 0</li>
+            <li><strong>PSU:</strong> 1200 W 80+ Titanium</li>
+          </ul>
+        </div>
+        <div class="pc-card-footer">
+          <div class="pc-price">$18.200.000<span>COP · sin pantalla</span></div>
+          <button class="btn-card" onclick="addToCart('IntelliCore WS','$18.200.000')">Cotizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIGURADOR -->
+<section id="configurador">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">⚙️ Configurador</div>
+      <h2 class="section-title">Arma tu <span>PC Custom</span></h2>
+      <p class="section-desc">Selecciona cada componente y el sistema calculará el precio total y la compatibilidad en tiempo real.</p>
+    </div>
+    <div class="config-layout">
+      <div class="config-form reveal">
+
+        <div class="config-group">
+          <div class="config-group-label">🖥️ Procesador (CPU)</div>
+          <select class="part-select" id="sel-cpu" onchange="updateConfig()">
+            <option value="0">— Selecciona un procesador —</option>
+            <optgroup label="Intel">
+              <option value="320000" data-perf="20" data-socket="1700">Intel Core i3-12100F · $320.000</option>
+              <option value="580000" data-perf="40" data-socket="1700">Intel Core i5-12400F · $580.000</option>
+              <option value="980000" data-perf="60" data-socket="1700">Intel Core i7-13700K · $980.000</option>
+              <option value="1850000" data-perf="85" data-socket="1700">Intel Core i9-13900K · $1.850.000</option>
+            </optgroup>
+            <optgroup label="AMD">
+              <option value="290000" data-perf="18" data-socket="AM4">AMD Ryzen 3 4300G · $290.000</option>
+              <option value="490000" data-perf="38" data-socket="AM4">AMD Ryzen 5 5600X · $490.000</option>
+              <option value="780000" data-perf="58" data-socket="AM5">AMD Ryzen 7 7700X · $780.000</option>
+              <option value="3200000" data-perf="95" data-socket="TRX5">AMD Threadripper 7960X · $3.200.000</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">🧩 Placa Madre (Motherboard)</div>
+          <select class="part-select" id="sel-mb" onchange="updateConfig()">
+            <option value="0">— Selecciona una placa —</option>
+            <optgroup label="LGA1700 (Intel)">
+              <option value="240000" data-socket="1700">ASUS Prime H610M-A · $240.000</option>
+              <option value="390000" data-socket="1700">MSI PRO B660M-A DDR4 · $390.000</option>
+              <option value="650000" data-socket="1700">Gigabyte Z690 AORUS Elite · $650.000</option>
+            </optgroup>
+            <optgroup label="AM4 (AMD)">
+              <option value="220000" data-socket="AM4">Gigabyte A520M DS3H · $220.000</option>
+              <option value="370000" data-socket="AM4">ASUS TUF Gaming B550M Plus · $370.000</option>
+              <option value="620000" data-socket="AM4">MSI MAG X570S TORPEDO · $620.000</option>
+            </optgroup>
+            <optgroup label="AM5 (AMD)">
+              <option value="580000" data-socket="AM5">ASUS PRIME X670-P · $580.000</option>
+              <option value="890000" data-socket="AM5">MSI MEG X670E ACE · $890.000</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">💾 Memoria RAM</div>
+          <select class="part-select" id="sel-ram" onchange="updateConfig()">
+            <option value="0">— Selecciona la RAM —</option>
+            <option value="85000"  data-perf="10">8 GB DDR4 2666 MHz · $85.000</option>
+            <option value="155000" data-perf="25">16 GB DDR4 3200 MHz · $155.000</option>
+            <option value="290000" data-perf="40">32 GB DDR4 3600 MHz · $290.000</option>
+            <option value="480000" data-perf="55">32 GB DDR5 6000 MHz · $480.000</option>
+            <option value="950000" data-perf="75">64 GB DDR5 5600 MHz · $950.000</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">💽 Almacenamiento</div>
+          <select class="part-select" id="sel-stor" onchange="updateConfig()">
+            <option value="0">— Selecciona el almacenamiento —</option>
+            <option value="65000"  data-perf="15">240 GB SSD SATA · $65.000</option>
+            <option value="120000" data-perf="30">512 GB NVMe Gen3 · $120.000</option>
+            <option value="210000" data-perf="45">1 TB NVMe Gen3 · $210.000</option>
+            <option value="380000" data-perf="60">2 TB NVMe Gen4 · $380.000</option>
+            <option value="720000" data-perf="75">4 TB NVMe Gen4 RAID · $720.000</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">🎮 Tarjeta Gráfica (GPU)</div>
+          <select class="part-select" id="sel-gpu" onchange="updateConfig()">
+            <option value="0">— Sin GPU dedicada —</option>
+            <option value="420000" data-perf="30">NVIDIA GTX 1650 4 GB · $420.000</option>
+            <option value="680000" data-perf="42">NVIDIA GTX 1660 Super 6 GB · $680.000</option>
+            <option value="980000" data-perf="55">AMD RX 6600 8 GB · $980.000</option>
+            <option value="1650000" data-perf="68">NVIDIA RTX 3070 8 GB · $1.650.000</option>
+            <option value="2400000" data-perf="78">NVIDIA RTX 4070 Ti 12 GB · $2.400.000</option>
+            <option value="5800000" data-perf="95">NVIDIA RTX 4090 24 GB · $5.800.000</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">🔋 Fuente de Poder (PSU)</div>
+          <select class="part-select" id="sel-psu" onchange="updateConfig()">
+            <option value="0">— Selecciona la fuente —</option>
+            <option value="95000">350 W 80+ White · $95.000</option>
+            <option value="145000">450 W 80+ Bronze · $145.000</option>
+            <option value="195000">650 W 80+ Bronze · $195.000</option>
+            <option value="265000">650 W 80+ Gold · $265.000</option>
+            <option value="360000">850 W 80+ Gold · $360.000</option>
+            <option value="520000">1000 W 80+ Platinum · $520.000</option>
+          </select>
+        </div>
+
+        <div class="config-group">
+          <div class="config-group-label">📦 Gabinete (Case)</div>
+          <select class="part-select" id="sel-case" onchange="updateConfig()">
+            <option value="0">— Selecciona el gabinete —</option>
+            <option value="85000">Gabinete Micro-ATX Básico · $85.000</option>
+            <option value="175000">NZXT H510 Mid-Tower · $175.000</option>
+            <option value="290000">Lian Li Lancool II RGB · $290.000</option>
+            <option value="480000">Fractal Design Torrent TG · $480.000</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- PANEL RESUMEN -->
+      <div class="summary-panel reveal">
+        <div class="summary-title">⚡ Tu Build</div>
+        <ul class="summary-list" id="summaryList">
+          <li class="summary-item"><span class="summary-item-label">CPU</span><span class="summary-item-val" id="s-cpu">—</span></li>
+          <li class="summary-item"><span class="summary-item-label">Motherboard</span><span class="summary-item-val" id="s-mb">—</span></li>
+          <li class="summary-item"><span class="summary-item-label">RAM</span><span class="summary-item-val" id="s-ram">—</span></li>
+          <li class="summary-item"><span class="summary-item-label">Almacenamiento</span><span class="summary-item-val" id="s-stor">—</span></li>
+          <li class="summary-item"><span class="summary-item-label">GPU</span><span class="summary-item-val" id="s-gpu">Integrada</span></li>
+          <li class="summary-item"><span class="summary-item-label">PSU</span><span class="summary-item-val" id="s-psu">—</span></li>
+          <li class="summary-item"><span class="summary-item-label">Gabinete</span><span class="summary-item-val" id="s-case">—</span></li>
+        </ul>
+        <div class="summary-divider"></div>
+        <div class="perf-bars">
+          <div class="perf-row">
+            <div class="perf-label"><span>Rendimiento CPU</span><span id="perf-cpu-val">0%</span></div>
+            <div class="perf-track"><div class="perf-fill" id="perf-cpu" style="width:0%"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-label"><span>Rendimiento GPU</span><span id="perf-gpu-val">0%</span></div>
+            <div class="perf-track"><div class="perf-fill" id="perf-gpu" style="width:0%"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-label"><span>Memoria</span><span id="perf-ram-val">0%</span></div>
+            <div class="perf-track"><div class="perf-fill" id="perf-ram" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+          <span class="summary-total-label">TOTAL ESTIMADO</span>
+          <span class="summary-total-price" id="totalPrice">$0</span>
+        </div>
+        <div class="compat-msg" id="compatMsg"></div>
+        <button class="btn-build" onclick="finalizeBuild()">🔩 Finalizar Configuración</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">👨‍💻 Quién lo hizo</div>
+      <h2 class="section-title">Sobre el <span>Desarrollador</span></h2>
+    </div>
+    <div class="about-card reveal">
+      <div class="about-avatar">👨‍💻</div>
+      <div class="about-text">
+        <h3>Estudiante de Ingeniería de Sistemas</h3>
+        <div class="role">IV Semestre · Universidad · Colombia 🇨🇴</div>
+        <p>Este proyecto fue desarrollado como parte de mi formación en Ingeniería de Sistemas. La idea nació de la necesidad de tener una herramienta accesible en español para ayudar a la gente a armar o elegir su equipo de cómputo sin perderse en tecnicismos.</p>
+        <p>Construido con <strong>HTML5, CSS3 y JavaScript vanilla</strong> — sin frameworks, solo código limpio y pasión por la tecnología.</p>
+        <div class="about-chips">
+          <span class="chip">HTML5</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Diseño Web</span>
+          <span class="chip">Hardware PC</span>
+          <span class="chip">UX/UI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Hecho con 🧡 por un estudiante de <span>Ing. Sistemas · IV Semestre</span> &nbsp;|&nbsp; TechBuild © 2025</p>
+  <p style="margin-top:.4rem;font-size:.75rem;">Proyecto académico · Los precios son referenciales y pueden variar</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <div class="modal-icon" id="modalIcon">🎉</div>
+    <h3 id="modalTitle">¡Cotización Enviada!</h3>
+    <p id="modalMsg">Tu solicitud ha sido registrada. Pronto nos pondremos en contacto contigo.</p>
+    <button class="modal-close" onclick="closeModal()">Entendido</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
